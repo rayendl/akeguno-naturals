@@ -88,24 +88,26 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                                 {/* Marketplace links */}
                                 <div className="mt-3 flex gap-2">
                                     {product.shopeeUrl && (
-                                        <a
-                                            href={product.shopeeUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                window.open(product.shopeeUrl, "_blank");
+                                            }}
                                             className="inline-flex items-center gap-1 rounded-[4px] bg-[#EE4D2D] px-3 py-1.5 font-body text-xs font-medium text-white transition-opacity hover:opacity-90"
                                         >
                                             🟠 Shopee
-                                        </a>
+                                        </button>
                                     )}
                                     {product.tiktokUrl && (
-                                        <a
-                                            href={product.tiktokUrl}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
+                                        <button
+                                            onClick={(e) => {
+                                                e.preventDefault();
+                                                window.open(product.tiktokUrl, "_blank");
+                                            }}
                                             className="inline-flex items-center gap-1 rounded-[4px] bg-urbane-bronze px-3 py-1.5 font-body text-xs font-medium text-white transition-opacity hover:opacity-90"
                                         >
                                             🎵 TikTok
-                                        </a>
+                                        </button>
                                     )}
                                 </div>
                             </div>
@@ -116,12 +118,12 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
 
                 <StaggerItem>
                     <div className="mt-8 text-center">
-                        <a
+                        <Link
                             href="/hasil-alam"
                             className="inline-flex h-11 items-center rounded-[4px] border border-terracotta-earth px-6 font-body text-sm font-semibold text-terracotta-earth shadow-sm transition-all hover:bg-terracotta-earth hover:text-white hover:scale-[1.02] active:scale-95"
                         >
                             Lihat Semua Produk →
-                        </a>
+                        </Link>
                     </div>
                 </StaggerItem>
             </StaggerContainer>
