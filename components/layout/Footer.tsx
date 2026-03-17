@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 interface FooterProps {
     settings?: {
@@ -19,6 +22,8 @@ const footerNav = [
 ];
 
 export function Footer({ settings }: FooterProps) {
+    const pathname = usePathname();
+    const isHome = pathname === "/";
     const waNumber = settings?.waNumber || process.env.NEXT_PUBLIC_WA_NUMBER || "6281234567890";
     const email = settings?.email || "hello@akegunonaturals.com";
     const tagline = settings?.tagline || "Honors nature's gifts through authenticity and shared purpose.";
@@ -47,6 +52,12 @@ export function Footer({ settings }: FooterProps) {
                                 <li key={item.href}>
                                     <Link
                                         href={item.href}
+                                        onClick={(e) => {
+                                            if (item.href === "/" && isHome) {
+                                                e.preventDefault();
+                                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                            }
+                                        }}
                                         className="font-body text-sm text-authentic-linen/60 transition-colors hover:text-terracotta-earth"
                                     >
                                         {item.label}

@@ -151,7 +151,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                                     href={product.shopeeUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex h-12 flex-1 items-center justify-center gap-2 rounded-[4px] bg-[#EE4D2D] font-body text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                                    className="flex h-12 flex-1 items-center justify-center gap-2 rounded-[4px] bg-[#EE4D2D] font-body text-sm font-semibold text-white shadow-sm transition-all hover:opacity-90 hover:scale-[1.02] active:scale-95"
                                 >
                                     🟠 Beli di Shopee
                                 </a>
@@ -161,7 +161,7 @@ export function QuickViewModal({ product, onClose }: QuickViewModalProps) {
                                     href={product.tiktokUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex h-12 flex-1 items-center justify-center gap-2 rounded-[4px] bg-urbane-bronze font-body text-sm font-semibold text-white transition-opacity hover:opacity-90"
+                                    className="flex h-12 flex-1 items-center justify-center gap-2 rounded-[4px] bg-urbane-bronze font-body text-sm font-semibold text-white shadow-sm transition-all hover:opacity-90 hover:scale-[1.02] active:scale-95"
                                 >
                                     🎵 Beli di TikTok Shop
                                 </a>

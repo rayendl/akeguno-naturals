@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/client";
 import { formatDate } from "@/lib/utils";
+import { StaggerContainer } from "@/components/ui/animations/StaggerContainer";
+import { StaggerItem } from "@/components/ui/animations/StaggerItem";
 
 interface Article {
     _id: string;
@@ -23,18 +25,22 @@ export function CatatanAlamPreview({ articles }: CatatanAlamPreviewProps) {
 
     return (
         <section className="section-padding bg-white">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h2 className="text-center font-heading text-[26px] font-semibold text-urbane-bronze md:text-[34px] lg:text-[40px]">
-                    Catatan Alam
-                </h2>
-                <p className="mx-auto mt-3 max-w-lg text-center font-body text-sm text-text-secondary lg:text-base">
-                    Cerita, tips, dan edukasi seputar kehidupan alami dan wellness.
-                </p>
+            <StaggerContainer className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <StaggerItem>
+                    <h2 className="text-center font-heading text-[26px] font-semibold text-urbane-bronze md:text-[34px] lg:text-[40px]">
+                        Catatan Alam
+                    </h2>
+                </StaggerItem>
+                <StaggerItem>
+                    <p className="mx-auto mt-3 max-w-lg text-center font-body text-sm text-text-secondary lg:text-base">
+                        Cerita, tips, dan edukasi seputar kehidupan alami dan wellness.
+                    </p>
+                </StaggerItem>
 
                 <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                     {displayArticles.map((article) => (
+                        <StaggerItem key={article._id}>
                         <Link
-                            key={article._id}
                             href={`/catatan-alam/${article.slug}`}
                             className="group overflow-hidden rounded-xl bg-authentic-linen transition-shadow hover:shadow-lg"
                         >
@@ -84,18 +90,21 @@ export function CatatanAlamPreview({ articles }: CatatanAlamPreviewProps) {
                                 </div>
                             </div>
                         </Link>
+                        </StaggerItem>
                     ))}
                 </div>
 
-                <div className="mt-8 text-center">
-                    <Link
-                        href="/catatan-alam"
-                        className="inline-flex h-11 items-center rounded-[4px] border border-terracotta-earth px-6 font-body text-sm font-semibold text-terracotta-earth transition-colors hover:bg-terracotta-earth hover:text-white"
-                    >
-                        Baca Selengkapnya →
-                    </Link>
-                </div>
-            </div>
+                <StaggerItem>
+                    <div className="mt-8 text-center">
+                        <Link
+                            href="/catatan-alam"
+                            className="inline-flex h-11 items-center rounded-[4px] border border-terracotta-earth px-6 font-body text-sm font-semibold text-terracotta-earth transition-colors hover:bg-terracotta-earth hover:text-white"
+                        >
+                            Baca Selengkapnya →
+                        </Link>
+                    </div>
+                </StaggerItem>
+            </StaggerContainer>
         </section>
     );
 }

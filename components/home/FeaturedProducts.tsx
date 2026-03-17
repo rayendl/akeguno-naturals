@@ -2,6 +2,9 @@
 
 import Image from "next/image";
 import { urlFor } from "@/sanity/client";
+import { StaggerContainer } from "@/components/ui/animations/StaggerContainer";
+import { StaggerItem } from "@/components/ui/animations/StaggerItem";
+import Link from "next/link";
 
 interface Product {
     _id: string;
@@ -11,6 +14,10 @@ interface Product {
     badge?: string;
     shopeeUrl?: string;
     tiktokUrl?: string;
+    description?: string;
+    size?: string;
+    benefits?: string[];
+    ingredients?: string;
 }
 
 interface FeaturedProductsProps {
@@ -18,26 +25,35 @@ interface FeaturedProductsProps {
 }
 
 export function FeaturedProducts({ products }: FeaturedProductsProps) {
-    // Fallback sample products when Sanity has no data yet
-    const displayProducts = products.length > 0 ? products : sampleProducts;
+
+    // Fallback sample products when Sanity has no data yet or has less than 4 items
+    const displayProducts = products.length >= 4 
+        ? products 
+        : [...products, ...sampleProducts.slice(products.length)].slice(0, 4);
 
     return (
-        <section className="section-padding">
-            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <h2 className="text-center font-heading text-[26px] font-semibold text-urbane-bronze md:text-[34px] lg:text-[40px]">
-                    Hasil Alam Pilihan
-                </h2>
-                <p className="mx-auto mt-3 max-w-lg text-center font-body text-sm text-text-secondary lg:text-base">
-                    Produk unggulan dari Akeguno Naturals, langsung dari alam untuk Anda.
-                </p>
+        <section className="section-padding bg-white">
+            <StaggerContainer className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                <StaggerItem>
+                    <h2 className="text-center font-heading text-[26px] font-semibold text-urbane-bronze md:text-[34px] lg:text-[40px]">
+                        Hasil Alam Pilihan
+                    </h2>
+                </StaggerItem>
+                <StaggerItem>
+                    <p className="mx-auto mt-3 max-w-lg text-center font-body text-sm text-text-secondary lg:text-base whitespace-nowrap overflow-hidden text-ellipsis">
+                        Produk unggulan dari Akeguno Naturals, langsung dari alam untuk Anda.
+                    </p>
+                </StaggerItem>
 
                 {/* Mobile: horizontal scroll / Desktop: grid */}
-                <div className="mt-10 flex gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:pb-0 xl:grid-cols-4">
+                <StaggerContainer className="mt-10 flex gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:pb-0 xl:grid-cols-4">
                     {displayProducts.map((product) => (
-                        <div
+                        <StaggerItem
                             key={product._id}
-                            className="group min-w-[240px] flex-shrink-0 lg:min-w-0"
+                            className="group min-w-[240px] flex-shrink-0 lg:min-w-0 rounded-lg transition-shadow hover:shadow-lg p-2 -m-2 cursor-pointer"
+                            direction="up"
                         >
+                            <Link href={`/hasil-alam?product=${product._id}`} className="block">
                             {/* Image */}
                             <div className="relative aspect-square overflow-hidden rounded-lg bg-white">
                                 {product.image?.asset ? (
@@ -93,19 +109,22 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                                     )}
                                 </div>
                             </div>
-                        </div>
+                            </Link>
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
 
-                <div className="mt-8 text-center">
-                    <a
-                        href="/hasil-alam"
-                        className="inline-flex h-11 items-center rounded-[4px] border border-terracotta-earth px-6 font-body text-sm font-semibold text-terracotta-earth transition-colors hover:bg-terracotta-earth hover:text-white"
-                    >
-                        Lihat Semua Produk →
-                    </a>
-                </div>
-            </div>
+                <StaggerItem>
+                    <div className="mt-8 text-center">
+                        <a
+                            href="/hasil-alam"
+                            className="inline-flex h-11 items-center rounded-[4px] border border-terracotta-earth px-6 font-body text-sm font-semibold text-terracotta-earth shadow-sm transition-all hover:bg-terracotta-earth hover:text-white hover:scale-[1.02] active:scale-95"
+                        >
+                            Lihat Semua Produk →
+                        </a>
+                    </div>
+                </StaggerItem>
+            </StaggerContainer>
         </section>
     );
 }
@@ -114,4 +133,5 @@ const sampleProducts: Product[] = [
     { _id: "1", name: "Jahe Merah Kering Premium", image: null as unknown as Product["image"], price: "Rp 35.000", badge: "Bestseller", shopeeUrl: "#", tiktokUrl: "#" },
     { _id: "2", name: "Kunyit Asem Instan", image: null as unknown as Product["image"], price: "Rp 28.000", badge: "New", shopeeUrl: "#", tiktokUrl: "#" },
     { _id: "3", name: "Minyak Kelapa Murni (VCO)", image: null as unknown as Product["image"], price: "Rp 65.000", shopeeUrl: "#" },
+    { _id: "4", name: "Lulur Rempah Tradisional", image: null as unknown as Product["image"], price: "Rp 45.000", badge: "Popular", shopeeUrl: "#" },
 ];

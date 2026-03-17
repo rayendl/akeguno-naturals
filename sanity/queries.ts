@@ -18,7 +18,11 @@ export const featuredProductsQuery = groq`*[_type == "product" && isActive == tr
   price,
   badge,
   shopeeUrl,
-  tiktokUrl
+  tiktokUrl,
+  description,
+  size,
+  benefits,
+  ingredients
 }`;
 
 export const allProductsQuery = groq`*[_type == "product" && isActive == true] | order(order asc) {

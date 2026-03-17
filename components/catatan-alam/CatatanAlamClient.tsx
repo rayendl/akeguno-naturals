@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/client";
 import { formatDate } from "@/lib/utils";
+import { StaggerContainer } from "@/components/ui/animations/StaggerContainer";
+import { StaggerItem } from "@/components/ui/animations/StaggerItem";
 
 interface Article {
     _id: string;
@@ -66,13 +68,14 @@ export function CatatanAlamClient({ articles, categories }: CatatanAlamClientPro
 
             {/* Article Grid */}
             {filteredArticles.length > 0 ? (
-                <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+                <StaggerContainer className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
                     {filteredArticles.map((article) => (
-                        <Link
+                        <StaggerItem
                             key={article._id}
-                            href={`/catatan-alam/${article.slug}`}
                             className="group overflow-hidden rounded-xl bg-white shadow-sm transition-shadow hover:shadow-lg"
+                            direction="up"
                         >
+                            <Link href={`/catatan-alam/${article.slug}`} className="block h-full">
                             {/* Cover image */}
                             <div className="relative aspect-[16/10] overflow-hidden bg-cinnamon/5">
                                 {article.coverImage?.asset ? (
@@ -118,9 +121,10 @@ export function CatatanAlamClient({ articles, categories }: CatatanAlamClientPro
                                     )}
                                 </div>
                             </div>
-                        </Link>
+                            </Link>
+                        </StaggerItem>
                     ))}
-                </div>
+                </StaggerContainer>
             ) : (
                 <div className="mt-16 text-center">
                     <p className="font-body text-lg text-text-secondary">Belum ada artikel di kategori ini.</p>

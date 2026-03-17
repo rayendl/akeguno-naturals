@@ -38,7 +38,7 @@ export function MobileMenu({ isOpen, onClose, navItems, pathname }: MobileMenuPr
                             </span>
                             <button
                                 onClick={onClose}
-                                className="flex h-10 w-10 items-center justify-center rounded-md"
+                                className="flex h-10 w-10 items-center justify-center rounded-md bg-transparent"
                                 aria-label="Close menu"
                             >
                                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

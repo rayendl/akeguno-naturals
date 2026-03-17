@@ -6,6 +6,7 @@ import { BrandPromise } from "@/components/home/BrandPromise";
 import { FeaturedProducts } from "@/components/home/FeaturedProducts";
 import { StoryTeaser } from "@/components/home/StoryTeaser";
 import { CatatanAlamPreview } from "@/components/home/CatatanAlamPreview";
+import { TestimonialSection } from "@/components/home/TestimonialSection";
 import { FaqSection } from "@/components/home/FaqSection";
 
 async function getData() {
@@ -27,9 +28,10 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
-      <BrandPromise />
       <FeaturedProducts products={products} />
+      <TestimonialSection />
       <StoryTeaser />
+      <BrandPromise />
       <CatatanAlamPreview articles={articles} />
       <FaqSection items={faqItems} />
     </>

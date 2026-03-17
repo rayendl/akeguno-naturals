@@ -1,9 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
 import { urlFor } from "@/sanity/client";
 import { QuickViewModal } from "./QuickViewModal";
+import { StaggerContainer } from "@/components/ui/animations/StaggerContainer";
+import { StaggerItem } from "@/components/ui/animations/StaggerItem";
 
 interface Product {
     _id: string;
@@ -36,7 +39,28 @@ export function HasilAlamClient({ products, categories }: HasilAlamClientProps) 
     const [activeCategory, setActiveCategory] = useState<string | null>(null);
     const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
+    const searchParams = useSearchParams();
+    const router = useRouter();
+
     const displayProducts = products.length > 0 ? products : sampleProducts;
+
+    useEffect(() => {
+        const productId = searchParams.get("product");
+        if (productId) {
+            const product = displayProducts.find((p) => p._id === productId);
+            if (product) {
+                setSelectedProduct(product);
+            }
+        }
+    }, [searchParams, displayProducts]);
+
+    const handleCloseModal = () => {
+        setSelectedProduct(null);
+        // Remove the query param from URL without refreshing the page
+        if (searchParams.has("product")) {
+            router.replace("/hasil-alam", { scroll: false });
+        }
+    };
 
     const filtered = activeCategory
         ? displayProducts.filter((p) => p.category?.slug === activeCategory)
@@ -72,13 +96,14 @@ export function HasilAlamClient({ products, categories }: HasilAlamClientProps) 
             )}
 
             {/* Product Grid */}
-            <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
+            <StaggerContainer className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
                 {filtered.map((product) => (
-                    <div
+                    <StaggerItem
                         key={product._id}
-                        className="group cursor-pointer"
-                        onClick={() => setSelectedProduct(product)}
+                        className="group cursor-pointer rounded-lg transition-shadow hover:shadow-lg p-2 -m-2"
+                        direction="up"
                     >
+                        <div onClick={() => setSelectedProduct(product)}>
                         {/* Image */}
                         <div className="relative aspect-square overflow-hidden rounded-lg bg-white">
                             {product.image?.asset ? (
@@ -122,19 +147,20 @@ export function HasilAlamClient({ products, categories }: HasilAlamClientProps) 
                                     </span>
                                 )}
                             </div>
-                            <button className="mt-2 w-full rounded-[4px] border border-terracotta-earth/30 py-2 font-body text-xs font-medium text-terracotta-earth transition-colors hover:bg-terracotta-earth hover:text-white lg:text-sm">
+                            <button className="mt-2 w-full rounded-[4px] border border-terracotta-earth/30 py-2 font-body text-xs font-medium text-terracotta-earth shadow-sm transition-all hover:bg-terracotta-earth hover:text-white hover:scale-[1.02] active:scale-95 lg:text-sm">
                                 Lihat Detail
                             </button>
                         </div>
-                    </div>
+                        </div>
+                    </StaggerItem>
                 ))}
-            </div>
+            </StaggerContainer>
 
             {/* QuickView Modal */}
             {selectedProduct && (
                 <QuickViewModal
                     product={selectedProduct}
-                    onClose={() => setSelectedProduct(null)}
+                    onClose={handleCloseModal}
                 />
             )}
         </>
