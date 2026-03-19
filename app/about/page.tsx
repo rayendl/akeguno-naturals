@@ -84,13 +84,13 @@ export default function AboutPage() {
                             </StaggerItem>
                         </div>
                         <StaggerItem>
-                            <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-cinnamon/10 lg:aspect-square">
+                            <div className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-cinnamon/10 lg:aspect-square">
                                 <Image
                                     src="https://res.cloudinary.com/dex0zf5nl/image/upload/v1773918244/Tim_Akeguno_kfirqz.png"
                                     alt="Tim Akeguno Naturals"
                                     fill
                                     unoptimized
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                             </div>
@@ -137,13 +137,13 @@ export default function AboutPage() {
                 <StaggerContainer className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                     <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-16">
                         <StaggerItem>
-                            <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-eucalyptus-calm/10 lg:aspect-square shadow-sm">
+                            <div className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-eucalyptus-calm/10 lg:aspect-square shadow-sm">
                                 <Image
                                     src="https://res.cloudinary.com/dex0zf5nl/image/upload/v1773924075/cristina-marin-PRS2m3KI9D0-unsplash_zfivxt.jpg"
                                     alt="Visi Misi Akeguno Naturals"
                                     fill
                                     unoptimized
-                                    className="object-cover"
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
                             </div>

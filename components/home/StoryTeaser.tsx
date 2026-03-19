@@ -33,24 +33,21 @@ export function StoryTeaser() {
                         </StaggerItem>
                         <StaggerItem>
                             <h2 className="mt-3 font-heading text-[26px] font-semibold leading-tight text-urbane-bronze md:text-[34px] lg:text-[40px]">
-                                Akeh Guna —<br />
-                                Banyak Manfaat
+                                Madu Murni, Tanpa Adulterasi
                             </h2>
                         </StaggerItem>
                         <StaggerItem>
-                            <p className="mt-5 font-body text-base leading-relaxed text-text-secondary lg:text-lg">
-                                Berawal dari kecintaan terhadap kekayaan alam Indonesia, Akeguno
-                                Naturals hadir untuk menghadirkan produk yang tidak hanya bermanfaat
-                                bagi penggunanya, tetapi juga menghormati alam sebagai sumber
-                                kehidupan.
-                            </p>
-                        </StaggerItem>
-                        <StaggerItem>
-                            <p className="mt-4 font-body text-base leading-relaxed text-text-secondary lg:text-lg">
-                                Nama &quot;Akeguno&quot; berasal dari bahasa Jawa yang berarti
-                                &quot;banyak guna&quot; — sebuah filosofi yang menjadi pondasi
-                                setiap produk yang kami buat.
-                            </p>
+                            <div className="mt-5 space-y-4 font-body text-base leading-relaxed text-text-secondary lg:text-lg">
+                                <p>
+                                    Akeguno lahir dari keresahan kami melihat sulitnya mendapatkan madu yang benar-benar murni dan jelas asal-usulnya. Di tengah pasar yang penuh dengan madu sirupan atau campuran, Akeguno hadir dengan satu janji sederhana: <strong className="text-urbane-bronze">Jujur dari hulu ke hilir.</strong>
+                                </p>
+                                <p>
+                                    Akeguno digerakkan oleh kolaborasi tiga sahabat: <strong className="text-urbane-bronze">Fata, Aji, dan Matthew</strong>. Tiga kepala dengan latar belakang berbeda, namun bergerak dalam satu irama.
+                                </p>
+                                <p>
+                                    Kami mengombinasikan transparansi dokumentasi, ketelitian operasional, dan visi untuk membawa hasil bumi ke level profesional tanpa kehilangan jati diri.
+                                </p>
+                            </div>
                         </StaggerItem>
                         <StaggerItem>
                             <Link
