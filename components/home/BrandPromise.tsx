@@ -3,22 +3,28 @@ import { StaggerItem } from "@/components/ui/animations/StaggerItem";
 
 const pillars = [
     {
-        icon: "🌿",
-        title: "Alam & Autentisitas",
+        icon: "🍯",
+        title: "Kualitas Raw",
         description:
-            "Setiap produk kami berasal dari bahan alami pilihan yang diolah dengan penuh ketulusan dan transparansi.",
+            "Nutrisi Utuh, Tanpa Sentuh. Kami menjaga kemurnian madu apa adanya dan menolak penggunaan mesin pemanas, demi memprioritaskan khasiat.",
+    },
+    {
+        icon: "🔍",
+        title: "Transparansi Proses",
+        description:
+            "Bicara Fakta, Bekerja Nyata. Dokumentasi setiap proses untuk memberikan kepastian. Transparansi kami adalah janji, dokumentasi kami adalah bukti.",
+    },
+    {
+        icon: "🏅",
+        title: "Standar Legal",
+        description:
+            "Teruji Teks, Terjamin Praktis. Kualitas melewati audit NKV, memastikan standar kebersihan, keamanan pangan dan operasional memenuhi regulasi negara.",
     },
     {
         icon: "🤝",
-        title: "Tujuan Bersama",
+        title: "Ekonomi Lokal",
         description:
-            "Kami percaya bahwa kebermanfaatan harus dirasakan bersama — dari alam, untuk semua.",
-    },
-    {
-        icon: "🌏",
-        title: "Ekosistem Holistik",
-        description:
-            "Membangun ekosistem yang menyeimbangkan kebutuhan manusia dengan kelestarian alam.",
+            "Berdayakan Desa, Majukan Bangsa. Kami bekerja langsung dengan peternak Jawa Tengah untuk mendukung kesejahteraan warga desa dan peternak lebah.",
     },
 ];
 
@@ -33,11 +39,11 @@ export function BrandPromise() {
                 </StaggerItem>
                 <StaggerItem>
                     <p className="mx-auto mt-3 max-w-lg text-center font-body text-sm text-text-secondary lg:text-base">
-                        Tiga pilar yang menjadi pondasi setiap langkah Akeguno Naturals.
+                        Empat pilar yang menjadi pondasi setiap langkah Akeguno Naturals.
                     </p>
                 </StaggerItem>
 
-                <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-3 lg:mt-14 lg:gap-12">
+                <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 lg:mt-14 lg:gap-8">
                     {pillars.map((pillar) => (
                         <StaggerItem
                             key={pillar.title}

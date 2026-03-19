@@ -31,7 +31,12 @@ export const metadata: Metadata = {
     template: "%s | Akeguno Naturals",
   },
   description:
-    "Akeguno Naturals menghadirkan produk alami berkualitas tinggi. Honors nature's gifts through authenticity and shared purpose.",
+    "Akeguno Naturals menghadirkan madu murni berkualitas tinggi. Honors nature's gift through authenticity and shared purpose.",
+  icons: {
+    icon: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png",
+    shortcut: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png",
+    apple: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png",
+  },
   openGraph: {
     type: "website",
     locale: "id_ID",

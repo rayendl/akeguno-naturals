@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { StaggerContainer } from "@/components/ui/animations/StaggerContainer";
 import { StaggerItem } from "@/components/ui/animations/StaggerItem";
 
@@ -10,13 +11,15 @@ export function StoryTeaser() {
                     {/* Image */}
                     <StaggerItem>
                         <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-eucalyptus-calm/10 lg:aspect-square group">
-                            <div className="flex h-full items-center justify-center transition-transform duration-500 group-hover:scale-105">
-                                <div className="text-center">
-                                    <span className="text-6xl">🌿</span>
-                                    <p className="mt-4 font-body text-sm text-text-secondary">
-                                        Brand Photo Placeholder
-                                    </p>
-                                </div>
+                            <div className="relative h-full w-full transition-transform duration-500 group-hover:scale-105">
+                                <Image
+                                    src="https://res.cloudinary.com/dex0zf5nl/image/upload/v1773918244/Tim_Akeguno_kfirqz.png"
+                                    alt="Tim Akeguno Naturals"
+                                    fill
+                                    unoptimized
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                />
                             </div>
                         </div>
                     </StaggerItem>

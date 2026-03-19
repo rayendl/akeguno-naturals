@@ -126,9 +126,19 @@ export function CatatanAlamClient({ articles, categories }: CatatanAlamClientPro
                     ))}
                 </StaggerContainer>
             ) : (
-                <div className="mt-16 text-center">
-                    <p className="font-body text-lg text-text-secondary">Belum ada artikel di kategori ini.</p>
-                </div>
+                <StaggerContainer>
+                    <StaggerItem>
+                        <div className="mt-12 mx-auto flex w-full max-w-lg flex-col items-center justify-center rounded-xl border border-morning-dew/30 bg-authentic-linen/40 px-4 py-12 text-center">
+                            <span className="mb-4 text-5xl">🌿</span>
+                            <h3 className="font-heading text-xl font-medium text-urbane-bronze">
+                                Segera Hadir
+                            </h3>
+                            <p className="mt-2 max-w-sm font-body text-sm text-text-secondary">
+                                Kami sedang menyiapkan konten terbaik untuk Anda. Pantau terus untuk cerita dan tips seputar alam dari Akeguno Naturals.
+                            </p>
+                        </div>
+                    </StaggerItem>
+                </StaggerContainer>
             )}
         </>
     );

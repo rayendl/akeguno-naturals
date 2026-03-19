@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function WhatsAppFloat() {
     const [visible, setVisible] = useState(false);
-    const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || "6281234567890";
+    const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || "6281313963935";
 
     useEffect(() => {
         const handleScroll = () => {
@@ -17,7 +17,7 @@ export function WhatsAppFloat() {
 
     return (
         <motion.a
-            href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Halo Akeguno Naturals, saya ingin bertanya...")}`}
+            href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Halo Akeguno Naturals, saya tertarik dengan produk madunya. Bisa bantu untuk pembelian atau info lebih lanjut?")}`}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Chat di WhatsApp"

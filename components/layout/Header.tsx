@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { MobileMenu } from "./MobileMenu";
@@ -50,6 +51,13 @@ export function Header() {
                             }
                         }}
                     >
+                        <Image 
+                            src="https://res.cloudinary.com/dex0zf5nl/image/upload/v1773918245/Logo_Akeguno_dffs7q.png" 
+                            alt="Akeguno Naturals Logo" 
+                            width={32} 
+                            height={32} 
+                            className={`object-contain transition-all duration-300 ${isTransparentAndHome ? "brightness-0 invert" : ""}`}
+                        />
                         {/* Mobile: text only (logomark placeholder) */}
                         <span className={`font-heading text-xl font-semibold lg:text-2xl transition-colors ${
                             isTransparentAndHome ? "text-white" : "text-urbane-bronze"

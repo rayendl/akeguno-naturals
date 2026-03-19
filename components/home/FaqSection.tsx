@@ -137,7 +137,7 @@ export function FaqSection({ items }: FaqSectionProps) {
                             Masih ada pertanyaan?
                         </p>
                         <a
-                            href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Halo Akeguno Naturals, saya ingin bertanya...")}`}
+                            href={`https://wa.me/${waNumber}?text=${encodeURIComponent("Halo Akeguno Naturals, saya tertarik dengan produk madunya. Bisa bantu untuk pembelian atau info lebih lanjut?")}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="mt-3 inline-flex h-11 items-center gap-2 rounded-[4px] bg-[#25D366] px-6 font-body text-sm font-semibold text-white transition-opacity hover:opacity-90"
@@ -154,37 +154,25 @@ export function FaqSection({ items }: FaqSectionProps) {
     );
 }
 
-// Sample FAQ items for when Sanity has no data yet
+// FAQ items from real Akeguno Naturals data
 const sampleFaqItems: FaqItem[] = [
     {
         _id: "f1",
-        question: "Dari mana bahan-bahan Akeguno Naturals berasal?",
-        answer: [{ _type: "block", _key: "a", children: [{ _type: "span", _key: "b", text: "Semua bahan kami bersumber langsung dari petani lokal Indonesia — terutama dari Jawa Tengah, Jawa Timur, dan wilayah penghasil rempah berkualitas. Kami membangun hubungan langsung dengan petani tanpa perantara berlebihan." }], markDefs: [], style: "normal" }] as unknown as PortableTextBlock[],
+        question: "Kenapa Madu Akeguno Terasa Encer?",
+        answer: [{ _type: "block", _key: "a", children: [{ _type: "span", _key: "b", text: "Karena Akeguno adalah Raw Honey asli. Kami menolak penggunaan mesin pemanas (dehumidifier) hanya untuk mengejar tekstur yang kental. Suhu tinggi dalam proses tersebut berisiko membunuh enzim dan nutrisi alami yang seharusnya didapatkan." }], markDefs: [], style: "normal" }] as unknown as PortableTextBlock[],
         category: "Tentang Produk",
     },
     {
         _id: "f2",
-        question: "Apakah produk Akeguno bebas bahan kimia tambahan?",
-        answer: [{ _type: "block", _key: "a", children: [{ _type: "span", _key: "b", text: "Ya. Kami tidak menambahkan pengawet sintetis, pewarna buatan, atau perisa artifisial. Komposisi yang tercantum adalah yang sebenarnya ada di dalam kemasan." }], markDefs: [], style: "normal" }] as unknown as PortableTextBlock[],
+        question: "Apakah Teksturnya dan Rasanya Akan Selalu Sama?",
+        answer: [{ _type: "block", _key: "a", children: [{ _type: "span", _key: "b", text: "Tidak. Tekstur madu kami mengikuti musim dan jenis bunga yang dihisap lebah dari peternak lokal. Kami membiarkan alam bekerja apa adanya tanpa manipulasi industri." }], markDefs: [], style: "normal" }] as unknown as PortableTextBlock[],
         category: "Tentang Produk",
     },
     {
         _id: "f3",
-        question: "Bagaimana cara memesan produk Akeguno Naturals?",
-        answer: [{ _type: "block", _key: "a", children: [{ _type: "span", _key: "b", text: "Pembelian bisa dilakukan melalui toko resmi kami di Shopee dan TikTok Shop. Klik tombol 'Beli' di halaman produk, atau hubungi kami langsung melalui WhatsApp." }], markDefs: [], style: "normal" }] as unknown as PortableTextBlock[],
-        category: "Pembelian",
-    },
-    {
-        _id: "f4",
-        question: "Berapa lama pengiriman ke daerah saya?",
-        answer: [{ _type: "block", _key: "a", children: [{ _type: "span", _key: "b", text: "Untuk Pulau Jawa umumnya 1–3 hari kerja, luar Pulau Jawa 3–7 hari kerja. Estimasi lebih akurat tersedia di halaman checkout marketplace." }], markDefs: [], style: "normal" }] as unknown as PortableTextBlock[],
-        category: "Pembelian",
-    },
-    {
-        _id: "f5",
-        question: "Bagaimana cara penyimpanan produk yang benar?",
-        answer: [{ _type: "block", _key: "a", children: [{ _type: "span", _key: "b", text: "Simpan di tempat sejuk, kering, dan terhindar dari sinar matahari langsung. Produk simplisia dan bubuk sebaiknya disimpan dalam wadah tertutup rapat setelah dibuka." }], markDefs: [], style: "normal" }] as unknown as PortableTextBlock[],
-        category: "Tentang Produk",
+        question: "Apakah Madu Ini Sudah Terjamin Keamanannya?",
+        answer: [{ _type: "block", _key: "a", children: [{ _type: "span", _key: "b", text: "Sudah. Selain menjaga proses tetap alami, operasional Akeguno telah melewati audit NKV (Nomor Kontrol Veteriner). Ini memastikan bahwa standar kebersihan dan fasilitas kami diakui secara resmi oleh negara." }], markDefs: [], style: "normal" }] as unknown as PortableTextBlock[],
+        category: "Kualitas & Keamanan",
     },
 ];
 

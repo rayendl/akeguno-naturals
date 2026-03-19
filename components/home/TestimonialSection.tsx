@@ -6,27 +6,21 @@ import { motion, AnimatePresence } from "framer-motion";
 const testimonials = [
   {
     id: 1,
-    name: "Siti Rahmawati",
-    role: "Pengguna Setia",
-    content: "Jahe merahnya benar-benar terasa khasiatnya. Sangat direkomendasikan untuk menjaga daya tahan tubuh secara alami.",
+    name: "btixpkt8hz",
+    role: "Madu Multiflora, 250 gr",
+    content: "Rasanya seimbang dan segar, manisnya pas tidak berlebihan. Keasliannya terjamin karena proses panennya transparan. Sangat bangga bisa mendukung produk yang memberdayakan peternak lokal!",
   },
   {
     id: 2,
-    name: "Budi Santoso",
-    role: "Penikmat Herbal",
-    content: "Kunyit asem dari Akeguno Naturals rasanya autentik sekali. Praktis tapi mempertahankan kualitas rempah asli Indonesia.",
+    name: "agustriwahjudi93",
+    role: "Madu Signature Blend, 315 gr",
+    content: "Sangat puas! Begitu dibuka ada suara desis khas madu murni tanpa campuran. Rasanya benar-benar enak dan autentik.",
   },
   {
     id: 3,
-    name: "Rina Sari",
-    role: "Ibu Rumah Tangga",
-    content: "VCO-nya murni dan sangat membantu untuk kesehatan kulit keluarga saya. Aromanya kelapa segar, bukan tengik.",
-  },
-  {
-    id: 4,
-    name: "Ahmad Fauzi",
-    role: "Healthy Lifestyle Enthusiast",
-    content: "Produk lokal dengan kualitas internasional! Sangat cocok bagi yang mencari rempah organik terpercaya.",
+    name: "ndymawar",
+    role: "Madu Durian 250 & Multiflora 250",
+    content: "Madu murni & raw dengan enzim yang masih aktif. Varian bunga durian ini aromanya sangat wangi dan unik. Pengemasan sangat aman dengan bubble wrap tebal dan kardus.",
   },
 ];
 
@@ -67,7 +61,7 @@ export function TestimonialSection() {
               transition={{ duration: 0.5 }}
               className="absolute w-full px-4"
             >
-              <div className="mx-auto w-full max-w-[320px] rounded-2xl bg-white p-6 shadow-sm border border-morning-dew/40">
+              <div className="flex h-[260px] flex-col mx-auto w-full max-w-[320px] rounded-2xl bg-white p-5 shadow-sm border border-morning-dew/40">
                 <div className="flex text-terracotta-earth mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg key={`star-mobile-${i}`} className="h-4 w-4 fill-current" viewBox="0 0 20 20">
@@ -75,10 +69,10 @@ export function TestimonialSection() {
                     </svg>
                   ))}
                 </div>
-                <p className="font-body text-sm text-text-secondary leading-relaxed mb-6">
+                <p className={`flex-grow overflow-y-auto pr-2 font-body text-text-secondary leading-relaxed mb-4 ${testimonials[activeIndex].content.length > 150 ? "text-xs" : "text-sm"}`}>
                   &quot;{testimonials[activeIndex].content}&quot;
                 </p>
-                <div>
+                <div className="mt-auto">
                   <p className="font-heading text-base font-semibold text-urbane-bronze">{testimonials[activeIndex].name}</p>
                   <p className="font-body text-xs text-eucalyptus-calm">{testimonials[activeIndex].role}</p>
                 </div>
@@ -100,7 +94,7 @@ export function TestimonialSection() {
           {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
             <div
               key={`${t.id}-${i}`}
-              className="w-72 sm:w-80 md:w-96 flex-shrink-0 rounded-2xl bg-white p-6 shadow-sm border border-morning-dew/40"
+              className="flex h-full min-h-[260px] flex-col w-72 sm:w-80 flex-shrink-0 rounded-2xl bg-white p-5 shadow-sm border border-morning-dew/40"
             >
               <div className="flex text-terracotta-earth mb-4">
                 {[...Array(5)].map((_, i) => (
@@ -109,10 +103,10 @@ export function TestimonialSection() {
                   </svg>
                 ))}
               </div>
-              <p className="font-body text-sm text-text-secondary md:text-base leading-relaxed mb-6">
+              <p className={`flex-grow font-body text-text-secondary leading-relaxed mb-6 ${t.content.length > 150 ? "text-xs md:text-sm" : "text-sm md:text-base"}`}>
                 &quot;{t.content}&quot;
               </p>
-              <div>
+              <div className="mt-auto">
                 <p className="font-heading text-base font-semibold text-urbane-bronze">{t.name}</p>
                 <p className="font-body text-xs text-eucalyptus-calm">{t.role}</p>
               </div>
