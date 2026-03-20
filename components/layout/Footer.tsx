@@ -24,7 +24,7 @@ const footerNav = [
 export function Footer({ settings }: FooterProps) {
     const pathname = usePathname();
     const isHome = pathname === "/";
-    const waNumber = settings?.waNumber || process.env.NEXT_PUBLIC_WA_NUMBER || "6281313963935";
+    const waNumber = settings?.waNumber || "6281313963935";
     const email = settings?.email || "akegunonaturals@gmail.com";
     const tagline = settings?.tagline || "Honors nature's gift through authenticity and shared purpose.";
     const instagramUrl = settings?.instagramUrl || "https://www.instagram.com/akegunonaturals?igsh=MWN0aWw5ZHVhcGJkaw==";

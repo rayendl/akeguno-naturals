@@ -87,7 +87,7 @@ export function FaqSection({ items }: FaqSectionProps) {
         {}
     );
 
-    const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || "6281234567890";
+    const waNumber = "6281313963935";
 
     return (
         <section id="faq" className="section-padding bg-eucalyptus-calm/5">

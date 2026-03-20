@@ -34,7 +34,7 @@ export function Header() {
         <header 
             className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
                 isScrolled 
-                    ? "bg-authentic-linen/90 backdrop-blur-md shadow-sm border-b border-morning-dew/30" 
+                    ? "bg-authentic-linen shadow-sm border-b border-morning-dew/30 lg:bg-authentic-linen/90 lg:backdrop-blur-md" 
                     : "bg-transparent border-b border-transparent"
             }`}
         >
@@ -52,7 +52,7 @@ export function Header() {
                         }}
                     >
                         <Image 
-                            src="https://res.cloudinary.com/dex0zf5nl/image/upload/v1773918245/Logo_Akeguno_dffs7q.png" 
+                            src="https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png" 
                             alt="Akeguno Naturals Logo" 
                             width={32} 
                             height={32} 

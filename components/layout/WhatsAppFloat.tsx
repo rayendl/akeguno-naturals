@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export function WhatsAppFloat() {
     const [visible, setVisible] = useState(false);
-    const waNumber = process.env.NEXT_PUBLIC_WA_NUMBER || "6281313963935";
+    const waNumber = "6281313963935";
 
     useEffect(() => {
         const handleScroll = () => {

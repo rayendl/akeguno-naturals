@@ -34,7 +34,7 @@ const siteSettings = {
     _id: "siteSettings",
     _type: "siteSettings",
     tagline: "Akeh Guna — Banyak Manfaat dari Bumi Pertiwi",
-    waNumber: "6281234567890",
+    waNumber: "6281313963935",
     email: "hello@akegunonaturals.com",
     instagramUrl: "https://instagram.com/akegunonaturals",
     tiktokUrl: "https://tiktok.com/@akegunonaturals",

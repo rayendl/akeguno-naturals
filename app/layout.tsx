@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Raleway } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -26,6 +27,7 @@ const raleway = Raleway({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://akegunonaturals.web.id"),
   title: {
     default: "Akeguno Naturals — Banyak Manfaat dari Alam",
     template: "%s | Akeguno Naturals",
@@ -33,14 +35,38 @@ export const metadata: Metadata = {
   description:
     "Akeguno Naturals menghadirkan madu murni berkualitas tinggi. Honors nature's gift through authenticity and shared purpose.",
   icons: {
-    icon: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png",
-    shortcut: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png",
-    apple: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png",
+    icon: [
+      { url: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto,e_trim/v1773918245/Logo_Akeguno_dffs7q.png", sizes: "32x32" },
+      { url: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto,e_trim/v1773918245/Logo_Akeguno_dffs7q.png", sizes: "16x16" },
+    ],
+    apple: [
+      { url: "https://res.cloudinary.com/dex0zf5nl/image/upload/c_pad,w_180,h_180,f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png", sizes: "180x180" },
+    ],
   },
   openGraph: {
+    title: {
+      default: "Akeguno Naturals — Banyak Manfaat dari Alam",
+      template: "%s | Akeguno Naturals",
+    },
+    description: "Akeguno Naturals menghadirkan madu murni berkualitas tinggi. Honors nature's gift through authenticity and shared purpose.",
+    url: "https://akegunonaturals.web.id",
     type: "website",
     locale: "id_ID",
     siteName: "Akeguno Naturals",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918255/hero_p1kclf.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Akeguno Naturals",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Akeguno Naturals — Banyak Manfaat dari Alam",
+    description: "Akeguno Naturals menghadirkan madu murni berkualitas tinggi.",
+    images: ["https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918255/hero_p1kclf.jpg"],
   },
 };
 
@@ -68,6 +94,9 @@ export default async function RootLayout({
         <WhatsAppFloat />
         <Analytics />
         <SpeedInsights />
+        {process.env.NEXT_PUBLIC_GA4_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA4_ID} />
+        )}
       </body>
     </html>
   );

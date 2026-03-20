@@ -15,7 +15,7 @@ export const siteSettings = defineType({
             name: "waNumber",
             title: "WhatsApp Number",
             type: "string",
-            description: "Format: 6281234567890 (tanpa + atau spasi)",
+            description: "Format: 6281313963935 (tanpa + atau spasi)",
         }),
         defineField({
             name: "email",
