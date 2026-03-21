@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Raleway } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { GoogleAnalytics } from "@next/third-parties/google";
 
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -94,9 +93,7 @@ export default async function RootLayout({
         <WhatsAppFloat />
         <Analytics />
         <SpeedInsights />
-        {process.env.NEXT_PUBLIC_GA4_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA4_ID} />
-        )}
+
       </body>
     </html>
   );
