@@ -13,10 +13,11 @@ export function StoryTeaser() {
                         <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-eucalyptus-calm/10 lg:aspect-square group">
                             <div className="relative h-full w-full transition-transform duration-500 group-hover:scale-105">
                                 <Image
-                                    src="https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918244/Tim_Akeguno_kfirqz.png"
+                                    src="/tim-akeguno.png"
                                     alt="Tim Akeguno Naturals"
                                     fill
-                                    unoptimized
+                                    quality={85}
+                                    loading="lazy"
                                     className="object-cover"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />

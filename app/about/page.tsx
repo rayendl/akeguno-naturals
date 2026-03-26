@@ -86,10 +86,11 @@ export default function AboutPage() {
                         <StaggerItem>
                             <div className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-cinnamon/10 lg:aspect-square">
                                 <Image
-                                    src="https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918244/Tim_Akeguno_kfirqz.png"
+                                    src="/tim-akeguno.png"
                                     alt="Tim Akeguno Naturals"
                                     fill
-                                    unoptimized
+                                    quality={85}
+                                    loading="lazy"
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />
@@ -139,10 +140,11 @@ export default function AboutPage() {
                         <StaggerItem>
                             <div className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-eucalyptus-calm/10 lg:aspect-square shadow-sm">
                                 <Image
-                                    src="https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773924075/cristina-marin-PRS2m3KI9D0-unsplash_zfivxt.jpg"
+                                    src="/about-farm.jpg"
                                     alt="Visi Misi Akeguno Naturals"
                                     fill
-                                    unoptimized
+                                    quality={85}
+                                    loading="lazy"
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                 />

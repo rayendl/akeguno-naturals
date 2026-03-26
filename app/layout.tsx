@@ -34,15 +34,6 @@ export const metadata: Metadata = {
   },
   description:
     "Akeguno Naturals menghadirkan madu murni berkualitas tinggi. Honors nature's gift through authenticity and shared purpose.",
-  icons: {
-    icon: [
-      { url: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto,e_trim/v1773918245/Logo_Akeguno_dffs7q.png", sizes: "32x32" },
-      { url: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto,e_trim/v1773918245/Logo_Akeguno_dffs7q.png", sizes: "16x16" },
-    ],
-    apple: [
-      { url: "https://res.cloudinary.com/dex0zf5nl/image/upload/c_pad,w_180,h_180,f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png", sizes: "180x180" },
-    ],
-  },
   openGraph: {
     title: {
       default: "Akeguno Naturals — Banyak Manfaat dari Alam",
@@ -55,7 +46,7 @@ export const metadata: Metadata = {
     siteName: "Akeguno Naturals",
     images: [
       {
-        url: "https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918255/hero_p1kclf.jpg",
+        url: "/hero.jpg",
         width: 1200,
         height: 630,
         alt: "Akeguno Naturals",
@@ -66,7 +57,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Akeguno Naturals — Banyak Manfaat dari Alam",
     description: "Akeguno Naturals menghadirkan madu murni berkualitas tinggi.",
-    images: ["https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918255/hero_p1kclf.jpg"],
+    images: ["/hero.jpg"],
   },
 };
 

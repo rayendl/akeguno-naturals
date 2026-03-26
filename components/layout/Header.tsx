@@ -52,7 +52,7 @@ export function Header() {
                         }}
                     >
                         <Image 
-                            src="https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918245/Logo_Akeguno_dffs7q.png" 
+                            src="/logo.webp" 
                             alt="Akeguno Naturals Logo" 
                             width={32} 
                             height={32} 

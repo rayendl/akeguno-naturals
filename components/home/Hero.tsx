@@ -11,9 +11,11 @@ export function Hero() {
             {/* Background Image Area */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="https://res.cloudinary.com/dex0zf5nl/image/upload/f_auto,q_auto/v1773918255/hero_p1kclf.jpg"
+                    src="/hero.jpg"
                     alt="Akeguno Naturals Hero Background"
                     fill
+                    quality={90}
+                    sizes="100vw"
                     className="object-cover"
                     priority
                 />
