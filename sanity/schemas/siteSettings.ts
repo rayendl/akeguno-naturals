@@ -37,6 +37,22 @@ export const siteSettings = defineType({
             title: "Shopee URL",
             type: "url",
         }),
+        defineField({
+            name: "lazadaUrl",
+            title: "Lazada URL",
+            type: "url",
+        }),
+        defineField({
+            name: "tokopediaUrl",
+            title: "Tokopedia URL",
+            type: "url",
+        }),
+        defineField({
+            name: "address",
+            title: "Address / Alamat",
+            type: "text",
+            rows: 3,
+        }),
     ],
     preview: {
         prepare() {

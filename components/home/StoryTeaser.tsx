@@ -8,19 +8,47 @@ export function StoryTeaser() {
         <section className="section-padding bg-white">
             <StaggerContainer className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-16">
-                    {/* Image */}
+                    {/* Founder photo collage */}
                     <StaggerItem>
-                        <div className="relative aspect-[4/3] overflow-hidden rounded-xl bg-eucalyptus-calm/10 lg:aspect-square group">
-                            <div className="relative h-full w-full transition-transform duration-500 group-hover:scale-105">
-                                <Image
-                                    src="/tim-akeguno.png"
-                                    alt="Tim Akeguno Naturals"
-                                    fill
-                                    quality={85}
-                                    loading="lazy"
-                                    className="object-cover"
-                                    sizes="(max-width: 1024px) 100vw, 50vw"
-                                />
+                        <div className="relative aspect-[4/3] lg:aspect-square">
+                            {/* Left column: 2 stacked portraits */}
+                            <div className="absolute inset-y-0 left-0 flex w-[48%] flex-col gap-3">
+                                <div className="group relative flex-1 overflow-hidden rounded-xl bg-eucalyptus-calm/10 shadow-sm">
+                                    <Image
+                                        src="/Mattew.jpeg"
+                                        alt="Matthew - Co-founder Akeguno Naturals"
+                                        fill
+                                        quality={85}
+                                        loading="lazy"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        sizes="20vw"
+                                    />
+                                </div>
+                                <div className="group relative flex-1 overflow-hidden rounded-xl bg-eucalyptus-calm/10 shadow-sm">
+                                    <Image
+                                        src="/Aji.jpeg"
+                                        alt="Aji - Co-founder Akeguno Naturals"
+                                        fill
+                                        quality={85}
+                                        loading="lazy"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                        sizes="20vw"
+                                    />
+                                </div>
+                            </div>
+                            {/* Right column: 1 tall portrait */}
+                            <div className="absolute inset-y-0 right-0 w-[50%]">
+                                <div className="group relative h-full overflow-hidden rounded-xl bg-eucalyptus-calm/10 shadow-sm">
+                                    <Image
+                                        src="/fata-long.jpeg"
+                                        alt="Fata - Co-founder Akeguno Naturals"
+                                        fill
+                                        quality={85}
+                                        loading="lazy"
+                                        className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                        sizes="25vw"
+                                    />
+                                </div>
                             </div>
                         </div>
                     </StaggerItem>

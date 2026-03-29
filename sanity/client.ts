@@ -7,7 +7,12 @@ export const client = createClient({
     apiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION!,
     useCdn: false, // Set false to ensure we get fresh data
     // Temporarily disable Next.js caching to ensure fresh data shows
-    fetch: { cache: 'no-store' }
+    fetch: { cache: "no-store" },
+    stega: {
+        // Hanya nyalakan stega kalau mau pakai visual editing (agar tidak muncul "Open in Studio" saat mode biasa)
+        enabled: false,
+        studioUrl: "/studio",
+    },
 });
 
 const builder = imageUrlBuilder(client);

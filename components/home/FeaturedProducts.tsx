@@ -9,11 +9,14 @@ import Link from "next/link";
 interface Product {
     _id: string;
     name: string;
+    slug: string;
     image: { asset: { _ref: string }; alt?: string };
     price: string;
     badge?: string;
     shopeeUrl?: string;
     tiktokUrl?: string;
+    lazadaUrl?: string;
+    tokopediaUrl?: string;
     description?: string;
     size?: string;
     benefits?: string[];
@@ -26,10 +29,8 @@ interface FeaturedProductsProps {
 
 export function FeaturedProducts({ products }: FeaturedProductsProps) {
 
-    // Fallback sample products when Sanity has no data yet or has less than 4 items
-    const displayProducts = products.length >= 4 
-        ? products 
-        : [...products, ...sampleProducts.slice(products.length)].slice(0, 4);
+    const displayProducts = products;
+    const isSparse = displayProducts.length <= 2;
 
     return (
         <section className="section-padding bg-white">
@@ -40,81 +41,123 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
                     </h2>
                 </StaggerItem>
                 <StaggerItem>
-                    <p className="mx-auto mt-3 max-w-lg text-center font-body text-sm text-text-secondary lg:text-base whitespace-nowrap overflow-hidden text-ellipsis">
+                    <p className="mx-auto mt-3 max-w-lg text-center font-body text-sm text-text-secondary lg:text-base">
                         Produk unggulan dari Akeguno Naturals, langsung dari alam untuk Anda.
                     </p>
                 </StaggerItem>
 
-                {/* Mobile: horizontal scroll / Desktop: grid */}
-                <StaggerContainer className="mt-10 flex gap-5 overflow-x-auto pb-4 lg:grid lg:grid-cols-3 lg:gap-8 lg:overflow-visible lg:pb-0 xl:grid-cols-4">
-                    {displayProducts.map((product) => (
-                        <StaggerItem
-                            key={product._id}
-                            className="group min-w-[240px] flex-shrink-0 lg:min-w-0 rounded-lg transition-shadow hover:shadow-lg p-2 -m-2 cursor-pointer"
-                            direction="up"
-                        >
-                            <Link href={`/hasil-alam?product=${product._id}`} className="block">
-                            {/* Image */}
-                            <div className="relative aspect-square overflow-hidden rounded-lg bg-white">
-                                {product.image?.asset ? (
-                                    <Image
-                                        src={urlFor(product.image).width(400).height(400).url()}
-                                        alt={product.image.alt || product.name}
-                                        fill
-                                        className="object-cover transition-transform duration-300 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 240px, (max-width: 1024px) 33vw, 25vw"
-                                    />
-                                ) : (
-                                    <div className="flex h-full items-center justify-center bg-cinnamon/5">
-                                        <span className="text-4xl">🌿</span>
-                                    </div>
-                                )}
-                                {/* Badge */}
-                                {product.badge && (
-                                    <span className="absolute left-3 top-3 rounded-full bg-muted-gold px-3 py-1 font-body text-xs font-semibold text-white">
-                                        {product.badge}
-                                    </span>
-                                )}
-                            </div>
-
-                            {/* Info */}
-                            <div className="mt-3">
-                                <h3 className="font-heading text-lg font-medium text-urbane-bronze">
-                                    {product.name}
-                                </h3>
-                                <p className="mt-1 font-body text-sm font-semibold text-terracotta-earth">
-                                    {product.price}
-                                </p>
-                                {/* Marketplace links */}
-                                <div className="mt-3 flex gap-2">
-                                    {product.shopeeUrl && (
-                                        <button
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                window.open(product.shopeeUrl, "_blank");
-                                            }}
-                                            className="inline-flex items-center gap-1 rounded-[4px] bg-[#EE4D2D] px-3 py-1.5 font-body text-xs font-medium text-white transition-opacity hover:opacity-90"
-                                        >
-                                            🟠 Shopee
-                                        </button>
+                {isSparse ? (
+                    /* Centered layout for sparse products */
+                    <div className="mt-10 grid grid-cols-2 gap-3 pb-4 sm:flex sm:flex-wrap sm:justify-center sm:gap-6">
+                        {displayProducts.map((product) => (
+                            <StaggerItem
+                                key={product._id}
+                                className="group w-full sm:max-w-[280px] rounded-lg transition-shadow hover:shadow-lg border border-gray-50 bg-white p-2 sm:p-3 cursor-pointer"
+                                direction="up"
+                            >
+                                <Link href={`/hasil-alam/${product.slug}`} className="block">
+                                {/* Image */}
+                                <div className="relative aspect-square overflow-hidden rounded-lg bg-white">
+                                    {product.image?.asset ? (
+                                        <Image
+                                            src={urlFor(product.image).width(400).height(400).url()}
+                                            alt={product.image.alt || product.name}
+                                            fill
+                                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                            sizes="(max-width: 640px) 50vw, 280px"
+                                        />
+                                    ) : (
+                                        <div className="flex h-full items-center justify-center bg-cinnamon/5">
+                                            <span className="text-4xl">🌿</span>
+                                        </div>
                                     )}
-                                    {product.tiktokUrl && (
-                                        <button
-                                            onClick={(e) => {
-                                                e.preventDefault();
-                                                window.open(product.tiktokUrl, "_blank");
-                                            }}
-                                            className="inline-flex items-center gap-1 rounded-[4px] bg-urbane-bronze px-3 py-1.5 font-body text-xs font-medium text-white transition-opacity hover:opacity-90"
-                                        >
-                                            🎵 TikTok
-                                        </button>
+                                    {product.badge && (
+                                        <span className="absolute left-3 top-3 rounded-full bg-muted-gold px-3 py-1 font-body text-xs font-semibold text-white">
+                                            {product.badge}
+                                        </span>
                                     )}
                                 </div>
+                                <div className="mt-3">
+                                    <h3 className="font-heading text-base sm:text-lg font-medium text-urbane-bronze leading-snug">{product.name}</h3>
+                                    <p className="mt-1 font-body text-xs sm:text-sm font-semibold text-terracotta-earth">{product.price}</p>
+                                    <div className="mt-2 sm:mt-3 flex gap-1.5 sm:gap-2 flex-wrap">
+                                        {product.shopeeUrl && (
+                                            <button onClick={(e) => { e.preventDefault(); window.open(product.shopeeUrl, "_blank"); }} className="inline-flex items-center gap-1 rounded-[4px] bg-[#EE4D2D] px-2 py-1 sm:px-3 sm:py-1.5 font-body text-[10px] sm:text-xs font-medium text-white transition-opacity hover:opacity-90">🟠 Shopee</button>
+                                        )}
+                                        {product.tiktokUrl && (
+                                            <button onClick={(e) => { e.preventDefault(); window.open(product.tiktokUrl, "_blank"); }} className="inline-flex items-center gap-1 rounded-[4px] bg-urbane-bronze px-2 py-1 sm:px-3 sm:py-1.5 font-body text-[10px] sm:text-xs font-medium text-white transition-opacity hover:opacity-90">🎵 TikTok</button>
+                                        )}
+                                        {product.lazadaUrl && (
+                                            <button onClick={(e) => { e.preventDefault(); window.open(product.lazadaUrl, "_blank"); }} className="inline-flex items-center gap-1 rounded-[4px] bg-[#0F146D] px-2 py-1 sm:px-3 sm:py-1.5 font-body text-[10px] sm:text-xs font-medium text-white transition-opacity hover:opacity-90">🔵 Lazada</button>
+                                        )}
+                                        {product.tokopediaUrl && (
+                                            <button onClick={(e) => { e.preventDefault(); window.open(product.tokopediaUrl, "_blank"); }} className="inline-flex items-center gap-1 rounded-[4px] bg-[#42B549] px-2 py-1 sm:px-3 sm:py-1.5 font-body text-[10px] sm:text-xs font-medium text-white transition-opacity hover:opacity-90">🟢 Tokopedia</button>
+                                        )}
+                                    </div>
+                                </div>
+                                </Link>
+                            </StaggerItem>
+                        ))}
+                        {/* Coming Soon Teaser Card */}
+                        <StaggerItem
+                            className="w-full sm:max-w-[280px] rounded-lg border-2 border-dashed border-eucalyptus-calm/30 bg-eucalyptus-calm/5 p-2"
+                            direction="up"
+                        >
+                            <div className="flex aspect-square flex-col items-center justify-center gap-3 rounded-lg">
+                                <span className="text-5xl">🍯</span>
+                                <p className="font-heading text-base font-medium text-urbane-bronze">Segera Hadir</p>
+                                <p className="px-4 text-center font-body text-xs text-text-secondary leading-relaxed">
+                                    Produk baru sedang dalam persiapan. Pantau terus!
+                                </p>
                             </div>
-                            </Link>
                         </StaggerItem>
-                    ))}
-                </StaggerContainer>
+                    </div>
+                ) : (
+                    /* Mobile: 2 columns grid / Desktop: grid */
+                    <StaggerContainer className="mt-10 grid grid-cols-2 gap-3 pb-4 sm:gap-4 md:grid-cols-3 lg:gap-8 lg:pb-0 xl:grid-cols-4">
+                        {displayProducts.map((product) => (
+                            <StaggerItem
+                                key={product._id}
+                                className="group rounded-lg transition-shadow hover:shadow-lg p-2 sm:p-3 border border-gray-50 bg-white cursor-pointer"
+                                direction="up"
+                            >
+                                <Link href={`/hasil-alam/${product.slug}`} className="block">
+                                {/* Image */}
+                                <div className="relative aspect-square overflow-hidden rounded-lg bg-white">
+                                    {product.image?.asset ? (
+                                        <Image
+                                            src={urlFor(product.image).width(400).height(400).url()}
+                                            alt={product.image.alt || product.name}
+                                            fill
+                                            className="object-cover transition-transform duration-300 group-hover:scale-105"
+                                            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                                        />
+                                    ) : (
+                                        <div className="flex h-full items-center justify-center bg-cinnamon/5">
+                                            <span className="text-4xl">🌿</span>
+                                        </div>
+                                    )}
+                                    {product.badge && (
+                                        <span className="absolute left-3 top-3 rounded-full bg-muted-gold px-3 py-1 font-body text-xs font-semibold text-white">
+                                            {product.badge}
+                                        </span>
+                                    )}
+                                </div>
+                                <div className="mt-3">
+                                    <h3 className="font-heading text-base sm:text-lg font-medium text-urbane-bronze leading-snug">{product.name}</h3>
+                                    <p className="mt-1 font-body text-xs sm:text-sm font-semibold text-terracotta-earth">{product.price}</p>
+                                    <div className="mt-2 sm:mt-3 flex gap-1.5 sm:gap-2 flex-wrap">
+                                        {product.shopeeUrl && (<button onClick={(e) => { e.preventDefault(); window.open(product.shopeeUrl, "_blank"); }} className="inline-flex items-center gap-1 rounded-[4px] bg-[#EE4D2D] px-2 py-1 sm:px-3 sm:py-1.5 font-body text-[10px] sm:text-xs font-medium text-white transition-opacity hover:opacity-90">🟠 Shopee</button>)}
+                                        {product.tiktokUrl && (<button onClick={(e) => { e.preventDefault(); window.open(product.tiktokUrl, "_blank"); }} className="inline-flex items-center gap-1 rounded-[4px] bg-urbane-bronze px-2 py-1 sm:px-3 sm:py-1.5 font-body text-[10px] sm:text-xs font-medium text-white transition-opacity hover:opacity-90">🎵 TikTok</button>)}
+                                        {product.lazadaUrl && (<button onClick={(e) => { e.preventDefault(); window.open(product.lazadaUrl, "_blank"); }} className="inline-flex items-center gap-1 rounded-[4px] bg-[#0F146D] px-2 py-1 sm:px-3 sm:py-1.5 font-body text-[10px] sm:text-xs font-medium text-white transition-opacity hover:opacity-90">🔵 Lazada</button>)}
+                                        {product.tokopediaUrl && (<button onClick={(e) => { e.preventDefault(); window.open(product.tokopediaUrl, "_blank"); }} className="inline-flex items-center gap-1 rounded-[4px] bg-[#42B549] px-2 py-1 sm:px-3 sm:py-1.5 font-body text-[10px] sm:text-xs font-medium text-white transition-opacity hover:opacity-90">🟢 Tokopedia</button>)}
+                                    </div>
+                                </div>
+                                </Link>
+                            </StaggerItem>
+                        ))}
+                    </StaggerContainer>
+                )}
 
                 <StaggerItem>
                     <div className="mt-8 text-center">
@@ -131,9 +174,3 @@ export function FeaturedProducts({ products }: FeaturedProductsProps) {
     );
 }
 
-const sampleProducts: Product[] = [
-    { _id: "1", name: "Jahe Merah Kering Premium", image: null as unknown as Product["image"], price: "Rp 35.000", badge: "Bestseller", shopeeUrl: "#", tiktokUrl: "#" },
-    { _id: "2", name: "Kunyit Asem Instan", image: null as unknown as Product["image"], price: "Rp 28.000", badge: "New", shopeeUrl: "#", tiktokUrl: "#" },
-    { _id: "3", name: "Minyak Kelapa Murni (VCO)", image: null as unknown as Product["image"], price: "Rp 65.000", shopeeUrl: "#" },
-    { _id: "4", name: "Lulur Rempah Tradisional", image: null as unknown as Product["image"], price: "Rp 45.000", badge: "Popular", shopeeUrl: "#" },
-];

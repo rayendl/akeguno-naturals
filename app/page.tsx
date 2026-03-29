@@ -1,5 +1,5 @@
 import { client } from "@/sanity/client";
-import { featuredProductsQuery, featuredArticlesQuery, activeFaqItemsQuery } from "@/sanity/queries";
+import { featuredProductsQuery, featuredArticlesQuery, activeFaqItemsQuery, activeTestimoniQuery } from "@/sanity/queries";
 
 import { Hero } from "@/components/home/Hero";
 import { BrandPromise } from "@/components/home/BrandPromise";
@@ -11,25 +11,26 @@ import { FaqSection } from "@/components/home/FaqSection";
 
 async function getData() {
   try {
-    const [products, articles, faqItems] = await Promise.all([
+    const [products, articles, faqItems, testimoni] = await Promise.all([
       client.fetch(featuredProductsQuery),
       client.fetch(featuredArticlesQuery),
       client.fetch(activeFaqItemsQuery),
+      client.fetch(activeTestimoniQuery),
     ]);
-    return { products: products || [], articles: articles || [], faqItems: faqItems || [] };
+    return { products: products || [], articles: articles || [], faqItems: faqItems || [], testimoni: testimoni || [] };
   } catch {
-    return { products: [], articles: [], faqItems: [] };
+    return { products: [], articles: [], faqItems: [], testimoni: [] };
   }
 }
 
 export default async function HomePage() {
-  const { products, articles, faqItems } = await getData();
+  const { products, articles, faqItems, testimoni } = await getData();
 
   return (
     <>
       <Hero />
       <FeaturedProducts products={products} />
-      <TestimonialSection />
+      <TestimonialSection testimoni={testimoni} />
       <StoryTeaser />
       <BrandPromise />
       <CatatanAlamPreview articles={articles} />

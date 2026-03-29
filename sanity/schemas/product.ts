@@ -12,6 +12,13 @@ export const product = defineType({
             validation: (rule) => rule.required(),
         }),
         defineField({
+            name: "slug",
+            title: "Slug",
+            type: "slug",
+            options: { source: "name", maxLength: 96 },
+            validation: (rule) => rule.required(),
+        }),
+        defineField({
             name: "image",
             title: "Main Image",
             type: "image",
@@ -32,9 +39,10 @@ export const product = defineType({
         }),
         defineField({
             name: "description",
-            title: "Short Description",
+            title: "Description",
             type: "text",
-            rows: 3,
+            rows: 5,
+            description: "Deskripsi produk. Gunakan baris baru untuk membuat paragraf baru.",
         }),
         defineField({
             name: "benefits",
@@ -67,6 +75,16 @@ export const product = defineType({
         defineField({
             name: "tiktokUrl",
             title: "TikTok Shop URL",
+            type: "url",
+        }),
+        defineField({
+            name: "lazadaUrl",
+            title: "Lazada URL",
+            type: "url",
+        }),
+        defineField({
+            name: "tokopediaUrl",
+            title: "Tokopedia URL",
             type: "url",
         }),
         defineField({

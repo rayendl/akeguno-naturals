@@ -7,18 +7,33 @@ export const siteSettingsQuery = groq`*[_type == "siteSettings"][0]{
   email,
   instagramUrl,
   tiktokUrl,
-  shopeeUrl
+  shopeeUrl,
+  lazadaUrl,
+  tokopediaUrl,
+  address
 }`;
+
+// Testimonials
+export const activeTestimoniQuery = groq`*[_type == "testimoni" && isActive == true] | order(order asc) {
+  _id,
+  name,
+  product,
+  message
+}`;
+
 
 // Products
 export const featuredProductsQuery = groq`*[_type == "product" && isActive == true && featured == true] | order(order asc) {
   _id,
   name,
+  "slug": slug.current,
   image,
   price,
   badge,
   shopeeUrl,
   tiktokUrl,
+  lazadaUrl,
+  tokopediaUrl,
   description,
   size,
   benefits,
@@ -28,6 +43,7 @@ export const featuredProductsQuery = groq`*[_type == "product" && isActive == tr
 export const allProductsQuery = groq`*[_type == "product" && isActive == true] | order(order asc) {
   _id,
   name,
+  "slug": slug.current,
   image,
   images,
   price,
@@ -38,6 +54,8 @@ export const allProductsQuery = groq`*[_type == "product" && isActive == true] |
   badge,
   shopeeUrl,
   tiktokUrl,
+  lazadaUrl,
+  tokopediaUrl,
   "category": category->{ name, "slug": slug.current }
 }`;
 
@@ -46,6 +64,30 @@ export const productCategoriesQuery = groq`*[_type == "productCategory"] | order
   name,
   "slug": slug.current
 }`;
+
+export const productBySlugQuery = groq`*[_type == "product" && slug.current == $slug && isActive == true][0] {
+  _id,
+  name,
+  "slug": slug.current,
+  image,
+  images,
+  price,
+  description,
+  benefits,
+  ingredients,
+  size,
+  badge,
+  shopeeUrl,
+  tiktokUrl,
+  lazadaUrl,
+  tokopediaUrl,
+  "category": category->{ name, "slug": slug.current }
+}`;
+
+export const allProductSlugsQuery = groq`*[_type == "product" && isActive == true && defined(slug.current)] {
+  "slug": slug.current
+}`;
+
 
 // FAQ
 export const activeFaqItemsQuery = groq`*[_type == "faqItem" && isActive == true] | order(order asc) {

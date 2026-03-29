@@ -11,6 +11,9 @@ interface FooterProps {
         instagramUrl?: string;
         tiktokUrl?: string;
         shopeeUrl?: string;
+        lazadaUrl?: string;
+        tokopediaUrl?: string;
+        address?: string;
     };
 }
 
@@ -29,6 +32,10 @@ export function Footer({ settings }: FooterProps) {
     const tagline = settings?.tagline || "Honors nature's gift through authenticity and shared purpose.";
     const instagramUrl = settings?.instagramUrl || "https://www.instagram.com/akegunonaturals?igsh=MWN0aWw5ZHVhcGJkaw==";
     const tiktokUrl = settings?.tiktokUrl || "https://www.tiktok.com/@akeguno.naturals";
+    const shopeeUrl = settings?.shopeeUrl || "https://s.shopee.co.id/qeshsYizf";
+    const lazadaUrl = settings?.lazadaUrl || "https://s.lazada.co.id/s.ZTrBZv";
+    const tokopediaUrl = settings?.tokopediaUrl || "https://tk.tokopedia.com/ZSuVHNVEy/";
+    const address = settings?.address || "Dukuh Randusari RT 06/RW 02, Desa Timbang, Kec. Banyuputih, Kab. Batang";
 
     return (
         <footer id="contact" className="bg-urbane-bronze text-authentic-linen/80">
@@ -44,7 +51,7 @@ export function Footer({ settings }: FooterProps) {
                             {tagline}
                         </p>
                         <p className="mt-3 font-body text-xs leading-relaxed text-authentic-linen/40">
-                            Dukuh Randusari RT 06/RW 02, Desa Timbang, Kec. Banyuputih, Kab. Batang
+                            {address}
                         </p>
                     </div>
 
@@ -153,17 +160,17 @@ export function Footer({ settings }: FooterProps) {
                         </h4>
                         <ul className="mt-3 space-y-2">
                             <li>
-                                <a href="https://s.shopee.co.id/qeshsYizf" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-authentic-linen/60 transition-colors hover:text-terracotta-earth">
+                                <a href={shopeeUrl} target="_blank" rel="noopener noreferrer" className="font-body text-sm text-authentic-linen/60 transition-colors hover:text-terracotta-earth">
                                     Shopee →
                                 </a>
                             </li>
                             <li>
-                                <a href="https://tk.tokopedia.com/ZSuVHNVEy/" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-authentic-linen/60 transition-colors hover:text-terracotta-earth">
+                                <a href={tokopediaUrl} target="_blank" rel="noopener noreferrer" className="font-body text-sm text-authentic-linen/60 transition-colors hover:text-terracotta-earth">
                                     Tokopedia →
                                 </a>
                             </li>
                             <li>
-                                <a href="https://s.lazada.co.id/s.ZTrBZv" target="_blank" rel="noopener noreferrer" className="font-body text-sm text-authentic-linen/60 transition-colors hover:text-terracotta-earth">
+                                <a href={lazadaUrl} target="_blank" rel="noopener noreferrer" className="font-body text-sm text-authentic-linen/60 transition-colors hover:text-terracotta-earth">
                                     Lazada →
                                 </a>
                             </li>

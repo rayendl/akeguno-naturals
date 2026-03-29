@@ -84,16 +84,23 @@ export default function AboutPage() {
                             </StaggerItem>
                         </div>
                         <StaggerItem>
-                            <div className="group relative aspect-[4/3] overflow-hidden rounded-xl bg-cinnamon/10 lg:aspect-square">
-                                <Image
-                                    src="/tim-akeguno.png"
-                                    alt="Tim Akeguno Naturals"
-                                    fill
-                                    quality={85}
-                                    loading="lazy"
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    sizes="(max-width: 1024px) 100vw, 50vw"
-                                />
+                            <div className="flex gap-3 sm:gap-4">
+                                {[{src: "/Fata.jpeg", name: "Fata"}, {src: "/Mattew.jpeg", name: "Matthew"}, {src: "/Aji.jpeg", name: "Aji"}].map((img) => (
+                                    <div key={img.name} className="flex flex-1 flex-col items-center gap-2">
+                                        <div className="group relative aspect-square w-full overflow-hidden rounded-xl bg-eucalyptus-calm/10 shadow-sm">
+                                            <Image
+                                                src={img.src}
+                                                alt={`Tim Akeguno - ${img.name}`}
+                                                fill
+                                                quality={85}
+                                                loading="lazy"
+                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                                sizes="(max-width: 1024px) 33vw, 16vw"
+                                            />
+                                        </div>
+                                        <p className="font-heading text-sm font-medium text-urbane-bronze">{img.name}</p>
+                                    </div>
+                                ))}
                             </div>
                         </StaggerItem>
                     </div>
