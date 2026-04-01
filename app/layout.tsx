@@ -61,6 +61,15 @@ export const metadata: Metadata = {
     description: "Akeguno Naturals menghadirkan madu murni berkualitas tinggi.",
     images: ["/hero.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "/icon.png" },
+      { url: "/logo-akeguno.png" },
+    ],
+    apple: [
+      { url: "/logo-akeguno.png" },
+    ],
+  },
 };
 
 async function getSettings() {

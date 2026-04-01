@@ -52,7 +52,7 @@ export function Header() {
                         }}
                     >
                         <Image 
-                            src="/logo.webp" 
+                            src="/logo-akeguno.png" 
                             alt="Akeguno Naturals Logo" 
                             width={32} 
                             height={32} 
