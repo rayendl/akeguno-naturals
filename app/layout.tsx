@@ -62,13 +62,7 @@ export const metadata: Metadata = {
     images: ["/hero.jpg"],
   },
   icons: {
-    icon: [
-      { url: "/icon.png" },
-      { url: "/logo-akeguno.png" },
-    ],
-    apple: [
-      { url: "/logo-akeguno.png" },
-    ],
+    icon: [{ url: "/icon" }],
   },
 };
 

@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
+    qualities: [75, 85, 90],
     remotePatterns: [
       {
         protocol: "https",
@@ -12,6 +13,13 @@ const nextConfig: NextConfig = {
         hostname: "res.cloudinary.com",
       },
     ],
+  },
+  experimental: {
+    turbo: {
+      resolveAlias: {
+        tailwindcss: "./node_modules/tailwindcss",
+      },
+    },
   },
 };
 

@@ -54,8 +54,8 @@ export function Header() {
                         <Image 
                             src="/logo-akeguno.png" 
                             alt="Akeguno Naturals Logo" 
-                            width={32} 
-                            height={32} 
+                            width={40} 
+                            height={40} 
                             className={`object-contain transition-all duration-300 ${isTransparentAndHome ? "brightness-0 invert" : ""}`}
                         />
                         {/* Mobile: text only (logomark placeholder) */}
