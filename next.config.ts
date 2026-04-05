@@ -14,11 +14,9 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  experimental: {
-    turbo: {
-      resolveAlias: {
-        tailwindcss: "./node_modules/tailwindcss",
-      },
+  turbopack: {
+    resolveAlias: {
+      tailwindcss: "./node_modules/tailwindcss",
     },
   },
 };
