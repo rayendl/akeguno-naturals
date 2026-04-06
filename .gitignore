@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dev tools & internal docs (jangan di-commit)
+.serena/
+*.md
+!README.md
+check-runs.json
+statuses.json
+diff.txt
+*.local_log.txt
+*.remote_log.txt
